@@ -1,0 +1,45 @@
+# Entornos y archivos generados por Python
+/venv/
+/.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Archivos locales y credenciales
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Archivos del sistema/editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Datos de entrada y derivados (no subir datasets ni fotos personales)
+datos/originales/roboflow/*
+!datos/originales/roboflow/.gitkeep
+datos/originales/propias/**/*.jpg
+datos/originales/propias/**/*.jpeg
+datos/originales/propias/**/*.png
+datos/originales/propias/**/*.heic
+datos/derivados/
+
+# Resultados generados; conservar el modelo y su informe para ejecutar el panel
+resultados/
+resultados_aumento/*
+!resultados_aumento/LEEME_RESULTADOS.md
+!resultados_aumento/final/
+resultados_aumento/final/*
+!resultados_aumento/final/modelo_final.pt
+!resultados_aumento/final/informe_prueba.md
+!resultados_aumento/final/confusion_clases.png
+!resultados_aumento/final/confusion_tachos.png
+
+# Logs locales y congelado de dependencias del entorno (por ejemplo, Windows)
+*.log
+/requisitos-congelados.txt

@@ -1,0 +1,140 @@
+# =============================================================================
+# EcoSegrega — catálogo de clases y código de colores (contexto peruano)
+# -----------------------------------------------------------------------------
+# Base normativa: NTP 900.058:2019 "Gestión de residuos. Código de colores para
+# el almacenamiento de residuos sólidos" (INACAL). Es de cumplimiento obligatorio
+# en el ámbito municipal y no municipal.
+#
+# Ámbito MUNICIPAL (domicilios, calles, colegios): 4 colores
+#   verde  = aprovechables (papel, cartón, vidrio, plástico, metales, textiles...)
+#   marrón = orgánicos (restos de comida, poda, hojarasca)
+#   negro  = no aprovechables (papel higiénico, pañales, colillas, cerámicos...)
+#   rojo   = peligrosos (pilas, focos/lámparas, medicinas vencidas, plaguicidas)
+#
+# Ámbito NO MUNICIPAL (empresas, instituciones): se separan los aprovechables
+#   amarillo = metales, verde = vidrio, azul = papel y cartón, blanco = plástico.
+#
+# Este estudio usa por defecto el esquema NO MUNICIPAL (7 colores), pensado para
+# una institución (universidad, empresa). Verifique los colores con su docente.
+# El código no tiene ningún color escrito: todo sale de este archivo.
+# =============================================================================
+
+norma: "NTP 900.058:2019 (INACAL)"
+
+# El ORDEN de esta lista define el índice de cada clase en el modelo.
+# Si lo cambia después de entrenar, los modelos anteriores dejan de ser válidos.
+clases:
+  plastico:
+    nombre: "Plástico"
+    ejemplos: "botellas PET de gaseosa o agua, envases de yogur, tapers, bolsas, vasos descartables"
+    tacho: {municipal: verde, no_municipal: blanco}
+  papel_carton:
+    nombre: "Papel y cartón"
+    ejemplos: "cajas de cartón, cuadernos, periódicos, hojas bond, bolsas de papel"
+    tacho: {municipal: verde, no_municipal: azul}
+  vidrio:
+    nombre: "Vidrio"
+    ejemplos: "botellas de cerveza o vino, frascos de mermelada, envases de vidrio"
+    tacho: {municipal: verde, no_municipal: verde}
+  metal:
+    nombre: "Metal"
+    ejemplos: "latas de atún o leche, latas de gaseosa, tapas metálicas, alambres"
+    tacho: {municipal: verde, no_municipal: amarillo}
+  organico:
+    nombre: "Orgánico"
+    ejemplos: "cáscaras de plátano, papa o naranja, restos de comida, hojas, poda"
+    tacho: {municipal: marron, no_municipal: marron}
+  peligroso:
+    nombre: "Peligroso"
+    ejemplos: "pilas y baterías, focos ahorradores, medicinas vencidas, envases de insecticida"
+    tacho: {municipal: rojo, no_municipal: rojo}
+  no_aprovechable:
+    nombre: "No aprovechable"
+    ejemplos: "papel higiénico, servilletas usadas, pañales, colillas, envolturas metalizadas de snacks, tecnopor sucio"
+    tacho: {municipal: negro, no_municipal: negro}
+
+colores:
+  verde:    {hex: "#2E7D32", descripcion: "Residuos aprovechables"}
+  marron:   {hex: "#6D4C41", descripcion: "Residuos orgánicos"}
+  negro:    {hex: "#212121", descripcion: "Residuos no aprovechables"}
+  rojo:     {hex: "#C62828", descripcion: "Residuos peligrosos"}
+  blanco:   {hex: "#FAFAFA", descripcion: "Plásticos (no municipal)"}
+  azul:     {hex: "#1565C0", descripcion: "Papel y cartón (no municipal)"}
+  amarillo: {hex: "#F9A825", descripcion: "Metales (no municipal)"}
+
+# -----------------------------------------------------------------------------
+# Equivalencias: etiqueta que trae el dataset de origen -> clase de este catálogo
+# -----------------------------------------------------------------------------
+# Las etiquetas se comparan normalizadas: minúsculas, sin tildes, espacios y
+# guiones convertidos en "_". "PLASTIC", "Plastic" y " plastic" son lo mismo.
+# Valor null = la etiqueta se descarta a propósito (queda en rechazados.csv con
+# su motivo). Una etiqueta que no está en esta lista también se rechaza, y el
+# script 02 le dirá cuáles faltan para que decida.
+equivalencias:
+  # --- plástico ---
+  plastic: plastico
+  plastics: plastico
+  plastico: plastico
+  pet: plastico
+  plastic_bottle: plastico
+  plastic_bag: plastico
+  bottle_plastic: plastico
+  # --- papel y cartón ---
+  paper: papel_carton
+  cardboard: papel_carton
+  carton: papel_carton
+  papel: papel_carton
+  papel_carton: papel_carton
+  paper_cardboard: papel_carton
+  # --- vidrio ---
+  glass: vidrio
+  vidrio: vidrio
+  glass_bottle: vidrio
+  brown_glass: vidrio
+  green_glass: vidrio
+  white_glass: vidrio
+  # --- metal ---
+  metal: metal
+  metals: metal
+  can: metal
+  cans: metal
+  aluminium: metal
+  aluminum: metal
+  tin_can: metal
+  lata: metal
+  # --- orgánico ---
+  organic: organico
+  organico: organico
+  biodegradable: organico
+  food: organico
+  food_waste: organico
+  biological: organico
+  compost: organico
+  # --- peligroso ---
+  battery: peligroso
+  batteries: peligroso
+  pila: peligroso
+  pilas: peligroso
+  hazardous: peligroso
+  medicine: peligroso
+  e_waste: peligroso
+  peligroso: peligroso
+  # --- no aprovechable ---
+  trash: no_aprovechable
+  general_waste: no_aprovechable
+  residual: no_aprovechable
+  non_recyclable: no_aprovechable
+  no_aprovechable: no_aprovechable
+  styrofoam: no_aprovechable
+  tecnopor: no_aprovechable
+  # --- descartadas a propósito (decida usted si las incluye) ---
+  # Textiles: la NTP los pone en verde (aprovechables), pero no tenemos clase
+  # propia. Si junta suficientes fotos, cree la clase "textil" arriba.
+  cloth: null
+  clothes: null
+  textile: null
+  shoes: null
+  # Etiquetas genéricas que Roboflow a veces deja como "superclase" del proyecto
+  garbage: null
+  waste: null
+  objects: null

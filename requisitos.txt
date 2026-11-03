@@ -1,0 +1,10 @@
+# Dependencias directas. PyTorch se instala aparte (ver LEEME.md): depende de su tarjeta.
+numpy
+pandas
+pillow
+pyyaml
+scikit-learn
+scipy>=1.11
+matplotlib
+streamlit>=1.50
+streamlit-webrtc>=0.63

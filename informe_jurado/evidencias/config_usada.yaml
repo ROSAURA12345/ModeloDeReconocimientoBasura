@@ -1,0 +1,71 @@
+estudio: residuos-factorial-aumento
+semilla: 2026
+equipo: auto
+determinista: false
+datos:
+  norma: config/ntp_900058.yaml
+  roboflow: datos/originales/roboflow
+  propias: datos/originales/propias
+  recortes: datos/derivados/recortes
+  inventario: datos/derivados/inventario.csv
+  apartados: datos/derivados/apartados.csv
+  margen_recorte: 0.12
+  lado_min: 48
+  desviacion_min: 6.0
+  aspecto_max: 6.0
+  hamming_max: 2
+  submuestra_grupos_por_clase: null
+pliegues:
+  archivo: datos/derivados/pliegues.csv
+  p_prueba: 0.15
+  k: 5
+  estratos:
+  - clase
+  - fuente
+factorial:
+  factor_a:
+    nombre: arquitectura
+    niveles:
+    - mobilenet_v3_large
+    - efficientnet_b0
+  factor_b:
+    nombre: aumento
+    niveles:
+    - basico
+    - fuerte
+  respuesta: f1_macro
+entrenamiento:
+  estrategia: parcial
+  etapas_liberadas: 2
+  epocas: 10
+  paciencia: 4
+  lote: 32
+  tasa: 0.001
+  factor_discriminativo: 2.6
+  decaimiento: 0.01
+  calentamiento_epocas: 1
+  suavizado_etiquetas: 0.1
+  recorte_gradiente: 1.0
+  precision_mixta: true
+  pesos_clase: true
+  hilos_carga: 2
+  tam_imagen: 224
+aumentos:
+  basico:
+    recorte_min: 0.8
+    volteo: true
+    rotacion: 0
+    color: 0.0
+    borrado: 0.0
+  fuerte:
+    recorte_min: 0.5
+    volteo: true
+    rotacion: 20
+    color: 0.3
+    borrado: 0.25
+  por_defecto: basico
+decision:
+  esquema: no_municipal
+  precision_objetivo: 0.95
+salidas:
+  carpeta: resultados_aumento

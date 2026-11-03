@@ -1,0 +1,7 @@
+Fotos de "no_aprovechable": UNA SUBCARPETA POR OBJETO.
+
+  no_aprovechable\botella_01\  foto1.jpg foto2.jpg ...
+  no_aprovechable\botella_02\  ...
+
+Las fotos del mismo objeto siempre irán al mismo pliegue (cap. 9 del libro).
+Varíe fondo, luz y ángulo; muchos objetos distintos valen más que muchas fotos del mismo.

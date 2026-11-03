@@ -1,0 +1,2 @@
+roboflow       # etapa 1 (descarga con clave API)
+pillow-heif    # fotos .heic de iPhone

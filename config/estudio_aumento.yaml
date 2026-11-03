@@ -1,0 +1,79 @@
+# Variante: factor B = aumento de datos (para cuando aún no hay fotos propias).
+#   python etapas\e4_estudio_factorial.py --config config/estudio_aumento.yaml
+# =============================================================================
+# EcoSegrega — definición del estudio experimental
+# Diseño: factorial 2 x 2 con validación cruzada agrupada y estratificada de K
+# pliegues (caps. 10, 18 y 22 de "Machine Learning Experimental").
+# Toda decisión vive aquí (cap. 13.2). El código no tiene números mágicos.
+# =============================================================================
+
+estudio: residuos-factorial-aumento
+semilla: 2026
+equipo: auto                 # auto | gpu | cpu   (también:  --equipo gpu  en cada etapa)
+determinista: false          # true para la corrida definitiva del informe (cap. 4.8)
+
+datos:
+  norma: config/ntp_900058.yaml
+  roboflow: datos/originales/roboflow        # un dataset por subcarpeta; solo lectura
+  propias: datos/originales/propias          # propias/<clase>/<objeto>/foto.jpg
+  recortes: datos/derivados/recortes
+  inventario: datos/derivados/inventario.csv
+  apartados: datos/derivados/apartados.csv
+  margen_recorte: 0.12
+  lado_min: 48
+  desviacion_min: 6.0
+  aspecto_max: 6.0
+  hamming_max: 2                             # casi-duplicados (dHash); -1 desactiva
+  submuestra_grupos_por_clase: null           # p. ej. 60 para un ensayo rápido en CPU
+
+pliegues:
+  archivo: datos/derivados/pliegues.csv
+  p_prueba: 0.15                              # se aparta UNA vez y no se mira hasta la etapa 6
+  k: 5                                        # cap. 10.2.1: 5 por defecto, 10 si hay pocos datos
+  estratos: [clase, fuente]
+
+# -----------------------------------------------------------------------------
+# Diseño factorial (cap. 22.2). Cada combinación de niveles es un "tratamiento"
+# y se evalúa en los MISMOS K pliegues (diseño aparejado / bloques, cap. 17).
+# -----------------------------------------------------------------------------
+factorial:
+  factor_a:
+    nombre: arquitectura
+    niveles: [mobilenet_v3_large, efficientnet_b0]   # también: resnet18, resnet50
+  factor_b:
+    # "fotos_propias": ¿aporta entrenar también con fotos tomadas en Perú?
+    #    niveles [sin, con]. El pliegue de validación es SIEMPRE el mismo (incluye
+    #    fotos propias), solo cambia lo que se usa para entrenar.
+    # "aumento": ¿aporta el aumento de datos fuerte?  niveles [basico, fuerte]
+    nombre: aumento
+    niveles: [basico, fuerte]
+  respuesta: f1_macro                # f1_macro | exactitud | f1_macro_propias (solo fotos propias del pliegue)
+
+entrenamiento:
+  estrategia: parcial                # cabeza | parcial | completo (cap. 6.2)
+  etapas_liberadas: 2
+  epocas: 10
+  paciencia: 4
+  lote: 32                           # GTX 1650 4 GB: 32 va bien con estas dos redes
+  tasa: 1.0e-3
+  factor_discriminativo: 2.6
+  decaimiento: 1.0e-2
+  calentamiento_epocas: 1
+  suavizado_etiquetas: 0.1
+  recorte_gradiente: 1.0
+  precision_mixta: true              # solo en GPU
+  pesos_clase: true
+  hilos_carga: 2                     # procesos del DataLoader; 0 para depurar en Windows
+  tam_imagen: 224
+
+aumentos:
+  basico: {recorte_min: 0.8, volteo: true, rotacion: 0, color: 0.0, borrado: 0.0}
+  fuerte: {recorte_min: 0.5, volteo: true, rotacion: 20, color: 0.3, borrado: 0.25}
+  por_defecto: basico                # el que se usa cuando el factor B no es "aumento"
+
+decision:
+  esquema: no_municipal              # no_municipal (7 colores) | municipal (4 colores)
+  precision_objetivo: 0.95           # umbral "no estoy seguro", calibrado con predicciones fuera de pliegue
+
+salidas:
+  carpeta: resultados_aumento

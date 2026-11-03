@@ -1,0 +1,16 @@
+imagen,aleatorizado_hasta,spearman
+datos/originales/roboflow/garbage-detection-l4ilj-v1/valid/trash/trash41_jpg.rf.836b088fd1c9a20c308923e408590ccf.jpg,cabeza,0.94
+datos/originales/roboflow/garbage-detection-l4ilj-v1/valid/trash/trash41_jpg.rf.836b088fd1c9a20c308923e408590ccf.jpg,etapa -1,0.495
+datos/originales/roboflow/garbage-detection-l4ilj-v1/valid/trash/trash41_jpg.rf.836b088fd1c9a20c308923e408590ccf.jpg,etapa -2,0.409
+datos/originales/roboflow/garbage-detection-l4ilj-v1/valid/trash/trash41_jpg.rf.836b088fd1c9a20c308923e408590ccf.jpg,etapa -3,0.406
+datos/originales/roboflow/garbage-detection-l4ilj-v1/valid/trash/trash41_jpg.rf.836b088fd1c9a20c308923e408590ccf.jpg,etapa -4,0.048
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal428_jpg.rf.5666b96a090bce1fe535b882ced88592.jpg,cabeza,0.934
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal428_jpg.rf.5666b96a090bce1fe535b882ced88592.jpg,etapa -1,0.263
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal428_jpg.rf.5666b96a090bce1fe535b882ced88592.jpg,etapa -2,0.125
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal428_jpg.rf.5666b96a090bce1fe535b882ced88592.jpg,etapa -3,0.277
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal428_jpg.rf.5666b96a090bce1fe535b882ced88592.jpg,etapa -4,-0.456
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal104_jpg.rf.7343d4d385b0d8efb0c5c981f9955443.jpg,cabeza,0.945
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal104_jpg.rf.7343d4d385b0d8efb0c5c981f9955443.jpg,etapa -1,0.205
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal104_jpg.rf.7343d4d385b0d8efb0c5c981f9955443.jpg,etapa -2,-0.292
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal104_jpg.rf.7343d4d385b0d8efb0c5c981f9955443.jpg,etapa -3,-0.036
+datos/originales/roboflow/garbage-detection-l4ilj-v1/train/metal/metal104_jpg.rf.7343d4d385b0d8efb0c5c981f9955443.jpg,etapa -4,0.331

@@ -1,0 +1,8 @@
+{
+  "tratamiento": "mobilenet_v3_large+basico",
+  "a": "mobilenet_v3_large",
+  "b": "basico",
+  "epocas_final": 10,
+  "media": 0.9745070067172164,
+  "respuesta": "f1_macro"
+}

@@ -1,0 +1,22 @@
+{
+  "INFORME_RESULTADOS_ECOSEGREGA.md": "87afb70e9dea48e6dde0ea66b6747d20c39a5b9d8eb7cf02b0e165979d87e0b2",
+  "evidencias\\aleatorizacion_gradcampp.csv": "68da082e1bdcabfde3c969f0fba56248e653faad803c08c067b88bcad0dbe7ba",
+  "evidencias\\apartados.csv": "69ec559d3f02a1ef2b8453e831290d0220d0b10a9137c2030b2edb5c041d52c6",
+  "evidencias\\clasificacion.csv": "44abb8954d8f0f650c07ce32f8b3b7fdaab3172ff36f9e51efdda8809288c575",
+  "evidencias\\config_usada.yaml": "1077905c266186049af133c396a4c55a77b41072280ce0296fc59841b44cc939",
+  "evidencias\\consultas_prueba.log": "2aa576d8d6d60034493be78e33d766ef9c3ba50939b218ae9eccb2fa3ca161be",
+  "evidencias\\ganador.json": "22e404ad035ec4c971b352c23375bd5e14ed2827dbcd65ce9f4a7581070ee203",
+  "evidencias\\informe_estadistico.md": "fdbb9b27efb48e081bf1e390db85e948e43c60335c5385ecf5d89b04c9f2fdec",
+  "evidencias\\informe_prueba.md": "314ecf23e996bde4362a8622d553c263ee67b09602d4ed4767401912b99ba945",
+  "evidencias\\inventario.json": "b6b8712696e67899c1748074c3f77d1eb78811380f3dcbcf017126c42201c9e4",
+  "evidencias\\pliegues.csv": "f9978003a3b21c30ceb83267ea463e11bdef13c1095aa9c75836258b765c9993",
+  "evidencias\\predicciones_prueba.csv": "656a9d2796a68e6cbef93e9a806b76a21777b544ec72742a40b31b32addd7e81",
+  "evidencias\\PROCEDENCIA.json": "6eaf723d3519d8bc42f2e5a9c598cc971be7ac858d813dc87c75af9c39ce9839",
+  "evidencias\\resultados_pliegues.csv": "784d489adcd138a010fcbd607a3febef134c350c815cabf4510dd0ecb7dcfeb4",
+  "imagenes\\comparacion_calidad_tiempo.png": "6ecb1fde47aba3b46fcc5761b7070a7921a6e4c0f35202d3f9f672a58a6d4d46",
+  "imagenes\\confusion_clases.png": "ddd8cc6c9ff5d94f97208ab04baa378804ce3636c25806f3651e3c5c27d82477",
+  "imagenes\\confusion_tachos.png": "66690a5f8f07438e7392f7b96da0ec61663ba3bbc5e43daf7c9c281dabcaf096",
+  "imagenes\\curvas_validacion.png": "052142ac3e376aab72cb32a28a33b65500b12075f5e94be43f297bb6c4d56385",
+  "imagenes\\figuras_estudio.png": "62cadb24b94bf8929647e27bad56ee5c4449c40b773f3a5d8911210be26c57e1",
+  "imagenes\\gradcampp_aciertos_fallos.png": "6e5d9bf6b8adf2c841b0ad440707d52e9c48e8852152da25d95b2551f4d12957"
+}

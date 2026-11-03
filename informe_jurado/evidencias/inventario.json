@@ -1,0 +1,15 @@
+{
+  "huella_inventario": "f3ba1ebd47f6f8b59c4f85bea64e306769062309d89ea08bcb37c29d57e882da",
+  "n_imagenes": 8182,
+  "n_grupos": 7816,
+  "n_rechazados": 13,
+  "duplicados_exactos": 0,
+  "conflictos_exactos": 0,
+  "pares_casi_duplicados": 4211,
+  "grupos_fusionados": 366,
+  "candidatos_dhash64": 25428,
+  "mayor_grupo": 213,
+  "desconocidas": {
+    "paper_trash": 1
+  }
+}
